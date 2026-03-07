@@ -1,0 +1,67 @@
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ USERID 				   NOT NULL NUMBER
+ NAME					   NOT NULL VARCHAR2(100)
+ EMAIL					   NOT NULL VARCHAR2(150)
+ PHONE						    VARCHAR2(20)
+ TYPE					   NOT NULL VARCHAR2(20)
+
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ THEATERID				   NOT NULL NUMBER
+ NAME					   NOT NULL VARCHAR2(120)
+ CITY					   NOT NULL VARCHAR2(80)
+ ADDRESS				   NOT NULL VARCHAR2(200)
+ PHONE						    VARCHAR2(20)
+
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ HALLID 				   NOT NULL NUMBER
+ THEATERID				   NOT NULL NUMBER
+ NAME					   NOT NULL VARCHAR2(80)
+ CAPACITY				   NOT NULL NUMBER
+ TYPE					   NOT NULL VARCHAR2(30)
+
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ MOVIEID				   NOT NULL NUMBER
+ TITLE					   NOT NULL VARCHAR2(150)
+ DURATION				   NOT NULL NUMBER
+ LANGUAGE				   NOT NULL VARCHAR2(50)
+ GENRE					   NOT NULL VARCHAR2(50)
+ RELEASEDATE				   NOT NULL DATE
+
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SHOWTIMEID				   NOT NULL NUMBER
+ MOVIEID				   NOT NULL NUMBER
+ HALLID 				   NOT NULL NUMBER
+ SHOWDATE				   NOT NULL DATE
+ SHOWTIME				   NOT NULL VARCHAR2(10)
+ PRICE					   NOT NULL NUMBER(10,2)
+ ISHOLIDAY					    CHAR(1)
+
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ BOOKINGID				   NOT NULL NUMBER
+ USERID 				   NOT NULL NUMBER
+ SHOWTIMEID				   NOT NULL NUMBER
+ BOOKINGTIME				   NOT NULL TIMESTAMP(6)
+ STATUS 				   NOT NULL VARCHAR2(20)
+ TYPE					   NOT NULL VARCHAR2(20)
+
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ TICKETID				   NOT NULL NUMBER
+ BOOKINGID				   NOT NULL NUMBER
+ SEATNO 				   NOT NULL VARCHAR2(10)
+ STATUS 				   NOT NULL VARCHAR2(20)
+
+ Name					   Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PAYMENTID				   NOT NULL NUMBER
+ BOOKINGID				   NOT NULL NUMBER
+ PAYDATE				   NOT NULL DATE
+ AMOUNT 				   NOT NULL NUMBER(10,2)
+ METHOD 				   NOT NULL VARCHAR2(20)
+
