@@ -15,7 +15,7 @@ namespace Data_and_Web_Development_Final
     {
 
         /// <summary>
-        
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
