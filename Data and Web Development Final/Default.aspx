@@ -66,19 +66,19 @@
                 color: #ffffff;
                 text-transform: uppercase;
                 letter-spacing: 1.5px;
-                background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
-                box-shadow: 0 15px 30px rgba(255, 0, 127, 0.4);
-                border: 1px solid rgba(255, 255, 255, 0.2);
+                background-color: var(--primary-accent);
+                box-shadow: 0 10px 20px rgba(255, 0, 127, 0.3);
+                border: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .icon-accent-cyan {
-                background: linear-gradient(135deg, #00d2ff, #008cff);
-                box-shadow: 0 15px 30px rgba(0, 210, 255, 0.4);
+                background-color: #008cff;
+                box-shadow: 0 10px 20px rgba(0, 140, 255, 0.3);
             }
 
             .icon-accent-purple {
-                background: linear-gradient(135deg, #7210f1, #9d50bb);
-                box-shadow: 0 15px 30px rgba(114, 16, 241, 0.4);
+                background-color: #7210f1;
+                box-shadow: 0 10px 20px rgba(114, 16, 241, 0.3);
             }
 
             .section-title {
@@ -95,8 +95,8 @@
             .section-title::after {
                 content: '';
                 flex: 1;
-                height: 2px;
-                background: linear-gradient(to right, var(--primary-accent), transparent);
+                height: 1px;
+                background-color: rgba(255, 255, 255, 0.2);
                 opacity: 0.5;
             }
         </style>

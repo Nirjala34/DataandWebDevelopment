@@ -9,7 +9,6 @@ namespace Data_and_Web_Development_Final
 {
     public partial class MovieOccupancy : System.Web.UI.Page
     {
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListMovie;
         public class MoviePerformance
         {
             public string MovieID { get; set; }
@@ -27,8 +26,13 @@ namespace Data_and_Web_Development_Final
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack && DropDownListMovie.SelectedValue != "-1")
+        }
+
+        protected void ButtonSearch_Click(object sender, EventArgs e)
+        {
+            if (DropDownListMovie.SelectedValue != "-1")
             {
+                PanelResults.Visible = true;
                 FetchOccupancyData(DropDownListMovie.SelectedValue);
             }
         }

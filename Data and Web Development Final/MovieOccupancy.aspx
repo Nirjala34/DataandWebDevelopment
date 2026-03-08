@@ -1,5 +1,5 @@
 <%@ Page Title="Top 3 Theaters by Occupancy" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="MovieOccupancy.aspx.cs" Inherits="Data_and_Web_Development_Final.MovieOccupancy" %>
+    CodeFile="MovieOccupancy.aspx.cs" Inherits="Data_and_Web_Development_Final.MovieOccupancy" %>
 
     <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
         <style>
@@ -63,7 +63,7 @@
             }
 
             .movie-badge-box {
-                background: linear-gradient(135deg, #ff007f, #7210f1);
+                background-color: #ff007f;
                 color: white;
                 border-radius: 10px;
                 width: 80px;
@@ -76,7 +76,7 @@
                 font-size: 0.7rem;
                 letter-spacing: 2px;
                 flex-shrink: 0;
-                box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+                box-shadow: 0 4px 10px rgba(255, 0, 127, 0.3);
             }
 
             .movie-badge-box i {
@@ -199,89 +199,101 @@
 
             <!-- Search Card -->
             <div class="search-card">
-                <label>Select Movie</label>
-                <asp:DropDownList ID="DropDownListMovie" runat="server" DataSourceID="SqlDataSourceMovies"
-                    DataTextField="TITLE" DataValueField="MOVIEID" CssClass="form-select" AppendDataBoundItems="true"
-                    AutoPostBack="true">
-                    <asp:ListItem Value="-1">Select a Movie</asp:ListItem>
-                </asp:DropDownList>
+                <div class="row align-items-end">
+                    <div class="col-md-6">
+                        <label>Select Movie</label>
+                        <asp:DropDownList ID="DropDownListMovie" runat="server" DataSourceID="SqlDataSourceMovies"
+                            DataTextField="TITLE" DataValueField="MOVIEID" CssClass="form-select w-100"
+                            AppendDataBoundItems="true" AutoPostBack="false" style="max-width: none !important;">
+                            <asp:ListItem Value="-1">Select a Movie</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <div class="col-md-auto">
+                        <label class="form-label d-block" style="visibility: hidden;">&nbsp;</label>
+                        <asp:Button ID="ButtonSearch" runat="server" Text="SEARCH" OnClick="ButtonSearch_Click"
+                            CssClass="btn btn-primary px-4" />
+                    </div>
+                </div>
             </div>
 
-            <% if (PerformanceResults.Count> 0) {
-                foreach (var movie in PerformanceResults) { %>
+            <asp:Panel ID="PanelResults" runat="server" Visible="false">
 
-                <!-- Movie Info Card -->
-                <div class="movie-info-card">
-                    <div class="movie-badge-box">
-                        <i class="bi bi-film"></i>
-                        MOVIE
-                    </div>
-                    <div>
-                        <div class="movie-info-title">
-                            <%= movie.Title %>
+
+                <% if (PerformanceResults.Count> 0) {
+                    foreach (var movie in PerformanceResults) { %>
+
+                    <!-- Movie Info Card -->
+                    <div class="movie-info-card">
+                        <div class="movie-badge-box">
+                            <i class="bi bi-film"></i>
+                            MOVIE
                         </div>
                         <div>
-                            <span class="meta-badge">ID: <%= movie.MovieID %></span>
-                            <span class="meta-badge">Genre: <%= movie.Genre %></span>
-                            <span class="meta-badge">Language: <%= movie.Language %></span>
-                            <span class="meta-badge">Duration: <%= movie.Duration %> min</span>
-                            <span class="meta-badge">Release: <%= movie.ReleaseDate %></span>
+                            <div class="movie-info-title">
+                                <%= movie.Title %>
+                            </div>
+                            <div>
+                                <span class="meta-badge">ID: <%= movie.MovieID %></span>
+                                <span class="meta-badge">Genre: <%= movie.Genre %></span>
+                                <span class="meta-badge">Language: <%= movie.Language %></span>
+                                <span class="meta-badge">Duration: <%= movie.Duration %> min</span>
+                                <span class="meta-badge">Release: <%= movie.ReleaseDate %></span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Visual Performance: CSS Progress Bars -->
-                <div class="chart-card">
-                    <div class="chart-card-title">Visual Performance Overview</div>
-                    <% RenderProgressBars(movie); %>
-                </div>
-
-
-                <!-- Analysis Table -->
-                <h3 class="analysis-title">MovieTheaterCityHallOccupancy - Top 3 Analysis</h3>
-                <div class="occ-table-wrap">
-                    <table class="occ-table">
-                        <thead>
-                            <tr>
-                                <th>Theater</th>
-                                <th>City</th>
-                                <th>Hall</th>
-                                <th>Occupancy (%)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% foreach (System.Data.DataRow row in movie.TopPerformers.Rows) { %>
-                                <tr>
-                                    <td>
-                                        <%= row["THEATER"] %>
-                                    </td>
-                                    <td>
-                                        <%= row["CITY"] %>
-                                    </td>
-                                    <td>
-                                        <%= row["HALL"] %>
-                                    </td>
-                                    <td class="pct">
-                                        <%= row["PCT"] %>%
-                                    </td>
-                                </tr>
-                                <% } %>
-                        </tbody>
-                    </table>
-                </div>
-
-                <% } } else { %>
-                    <div class="no-data-box">
-                        <i class="bi bi-graph-up-arrow"></i>
-                        Select a movie from the dropdown above to view its Top 3 occupancy analysis.
+                    <!-- Visual Performance: CSS Progress Bars -->
+                    <div class="chart-card">
+                        <div class="chart-card-title">Visual Performance Overview</div>
+                        <% RenderProgressBars(movie); %>
                     </div>
-                    <% } %>
 
-                        <asp:SqlDataSource ID="SqlDataSourceMovies" runat="server"
-                            ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-                            ProviderName="System.Data.OracleClient"
-                            SelectCommand="SELECT DISTINCT m.MOVIEID, m.TITLE FROM MOVIES m INNER JOIN SHOWTIMES s ON m.MOVIEID = s.MOVIEID ORDER BY m.TITLE">
-                        </asp:SqlDataSource>
 
+                    <!-- Analysis Table -->
+                    <h3 class="analysis-title">MovieTheaterCityHallOccupancy - Top 3 Analysis</h3>
+                    <div class="occ-table-wrap">
+                        <table class="occ-table">
+                            <thead>
+                                <tr>
+                                    <th>Theater</th>
+                                    <th>City</th>
+                                    <th>Hall</th>
+                                    <th>Occupancy (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% foreach (System.Data.DataRow row in movie.TopPerformers.Rows) { %>
+                                    <tr>
+                                        <td>
+                                            <%= row["THEATER"] %>
+                                        </td>
+                                        <td>
+                                            <%= row["CITY"] %>
+                                        </td>
+                                        <td>
+                                            <%= row["HALL"] %>
+                                        </td>
+                                        <td class="pct">
+                                            <%= row["PCT"] %>%
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <% } } else { %>
+                        <div class="no-data-box">
+                            <i class="bi bi-graph-up-arrow"></i>
+                            Select a movie from the dropdown above to view its Top 3 occupancy analysis.
+                        </div>
+                        <% } %>
+
+                            <asp:SqlDataSource ID="SqlDataSourceMovies" runat="server"
+                                ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+                                ProviderName="System.Data.OracleClient"
+                                SelectCommand="SELECT DISTINCT m.MOVIEID, m.TITLE FROM MOVIES m INNER JOIN SHOWTIMES s ON m.MOVIEID = s.MOVIEID ORDER BY m.TITLE">
+                            </asp:SqlDataSource>
+            </asp:Panel>
         </div>
     </asp:Content>
