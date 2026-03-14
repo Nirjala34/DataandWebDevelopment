@@ -38,7 +38,7 @@
                 InsertCommand="INSERT INTO &quot;MOVIES&quot; (&quot;MOVIEID&quot;, &quot;TITLE&quot;, &quot;DURATION&quot;, &quot;LANGUAGE&quot;, &quot;GENRE&quot;, &quot;RELEASEDATE&quot;) VALUES (:MOVIEID, :TITLE, :DURATION, :LANGUAGE, :GENRE, :RELEASEDATE)"
                 OldValuesParameterFormatString="original_{0}"
                 ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>"
-                SelectCommand="SELECT * FROM &quot;MOVIES&quot;"
+                SelectCommand="SELECT * FROM &quot;MOVIES&quot; ORDER BY &quot;MOVIEID&quot; ASC"
                 UpdateCommand="UPDATE &quot;MOVIES&quot; SET &quot;TITLE&quot; = :TITLE, &quot;DURATION&quot; = :DURATION, &quot;LANGUAGE&quot; = :LANGUAGE, &quot;GENRE&quot; = :GENRE, &quot;RELEASEDATE&quot; = :RELEASEDATE WHERE &quot;MOVIEID&quot; = :original_MOVIEID AND &quot;TITLE&quot; = :original_TITLE AND &quot;DURATION&quot; = :original_DURATION AND &quot;LANGUAGE&quot; = :original_LANGUAGE AND &quot;GENRE&quot; = :original_GENRE AND &quot;RELEASEDATE&quot; = :original_RELEASEDATE">
                 <DeleteParameters>
                     <asp:Parameter Name="original_MOVIEID" Type="Decimal" />

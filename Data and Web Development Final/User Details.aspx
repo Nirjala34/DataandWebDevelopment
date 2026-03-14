@@ -43,7 +43,7 @@
                 InsertCommand="INSERT INTO &quot;USERS&quot; (&quot;USERID&quot;, &quot;NAME&quot;, &quot;EMAIL&quot;, &quot;PHONE&quot;, &quot;TYPE&quot;) VALUES (:USERID, :NAME, :EMAIL, :PHONE, :TYPE)"
                 OldValuesParameterFormatString="original_{0}"
                 ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>"
-                SelectCommand="SELECT * FROM &quot;USERS&quot;"
+                SelectCommand="SELECT * FROM &quot;USERS&quot; ORDER BY &quot;USERID&quot; ASC"
                 UpdateCommand="UPDATE &quot;USERS&quot; SET &quot;NAME&quot; = :NAME, &quot;EMAIL&quot; = :EMAIL, &quot;PHONE&quot; = :PHONE, &quot;TYPE&quot; = :TYPE WHERE &quot;USERID&quot; = :original_USERID AND &quot;NAME&quot; = :original_NAME AND &quot;EMAIL&quot; = :original_EMAIL AND ((&quot;PHONE&quot; = :original_PHONE) OR (&quot;PHONE&quot; IS NULL AND :original_PHONE IS NULL)) AND &quot;TYPE&quot; = :original_TYPE">
                 <DeleteParameters>
                     <asp:Parameter Name="original_USERID" Type="Decimal" />

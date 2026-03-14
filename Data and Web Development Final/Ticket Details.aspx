@@ -35,7 +35,7 @@
                 InsertCommand="INSERT INTO &quot;TICKETS&quot; (&quot;TICKETID&quot;, &quot;BOOKINGID&quot;, &quot;SEATNO&quot;, &quot;STATUS&quot;) VALUES (:TICKETID, :BOOKINGID, :SEATNO, :STATUS)"
                 OldValuesParameterFormatString="original_{0}"
                 ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>"
-                SelectCommand="SELECT * FROM &quot;TICKETS&quot;"
+                SelectCommand="SELECT * FROM &quot;TICKETS&quot; ORDER BY &quot;TICKETID&quot; ASC"
                 UpdateCommand="UPDATE &quot;TICKETS&quot; SET &quot;BOOKINGID&quot; = :BOOKINGID, &quot;SEATNO&quot; = :SEATNO, &quot;STATUS&quot; = :STATUS WHERE &quot;TICKETID&quot; = :original_TICKETID">
                 <DeleteParameters>
                     <asp:Parameter Name="original_TICKETID" Type="Decimal" />
@@ -92,7 +92,6 @@
                                         style="background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.1);">
                                         <asp:ListItem Value="PAID">PAID</asp:ListItem>
                                         <asp:ListItem Value="RESERVED">RESERVED</asp:ListItem>
-                                        <asp:ListItem Value="USED">USED</asp:ListItem>
                                         <asp:ListItem Value="CANCELLED">CANCELLED</asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
@@ -132,7 +131,6 @@
                                         style="background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.1);">
                                         <asp:ListItem Value="PAID">PAID</asp:ListItem>
                                         <asp:ListItem Value="RESERVED">RESERVED</asp:ListItem>
-                                        <asp:ListItem Value="USED">USED</asp:ListItem>
                                         <asp:ListItem Value="CANCELLED">CANCELLED</asp:ListItem>
                                     </asp:DropDownList>
                                 </div>

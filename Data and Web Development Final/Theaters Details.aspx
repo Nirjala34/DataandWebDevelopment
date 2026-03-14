@@ -36,7 +36,7 @@
                 InsertCommand="INSERT INTO &quot;THEATERS&quot; (&quot;THEATERID&quot;, &quot;NAME&quot;, &quot;CITY&quot;, &quot;ADDRESS&quot;, &quot;PHONE&quot;) VALUES (:THEATERID, :NAME, :CITY, :ADDRESS, :PHONE)"
                 OldValuesParameterFormatString="original_{0}"
                 ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>"
-                SelectCommand="SELECT * FROM &quot;THEATERS&quot;"
+                SelectCommand="SELECT * FROM &quot;THEATERS&quot; ORDER BY &quot;THEATERID&quot; ASC"
                 UpdateCommand="UPDATE &quot;THEATERS&quot; SET &quot;NAME&quot; = :NAME, &quot;CITY&quot; = :CITY, &quot;ADDRESS&quot; = :ADDRESS, &quot;PHONE&quot; = :PHONE WHERE &quot;THEATERID&quot; = :original_THEATERID AND &quot;NAME&quot; = :original_NAME AND &quot;CITY&quot; = :original_CITY AND &quot;ADDRESS&quot; = :original_ADDRESS AND ((&quot;PHONE&quot; = :original_PHONE) OR (&quot;PHONE&quot; IS NULL AND :original_PHONE IS NULL))">
                 <DeleteParameters>
                     <asp:Parameter Name="original_THEATERID" Type="Decimal" />

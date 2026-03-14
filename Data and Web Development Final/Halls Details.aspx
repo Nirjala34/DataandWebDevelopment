@@ -39,7 +39,7 @@
                 DeleteCommand="DELETE FROM &quot;HALLS&quot; WHERE &quot;HALLID&quot; = :original_HALLID"
                 InsertCommand="INSERT INTO &quot;HALLS&quot; (&quot;HALLID&quot;, &quot;THEATERID&quot;, &quot;NAME&quot;, &quot;CAPACITY&quot;, &quot;TYPE&quot;) VALUES (:HALLID, :THEATERID, :NAME, :CAPACITY, :TYPE)"
                 OldValuesParameterFormatString="original_{0}" ProviderName="System.Data.OracleClient"
-                SelectCommand="SELECT * FROM &quot;HALLS&quot;"
+                SelectCommand="SELECT * FROM &quot;HALLS&quot; ORDER BY &quot;HALLID&quot; ASC"
                 UpdateCommand="UPDATE &quot;HALLS&quot; SET &quot;THEATERID&quot; = :THEATERID, &quot;NAME&quot; = :NAME, &quot;CAPACITY&quot; = :CAPACITY, &quot;TYPE&quot; = :TYPE WHERE &quot;HALLID&quot; = :original_HALLID">
                 <DeleteParameters>
                     <asp:Parameter Name="original_HALLID" Type="Decimal" />

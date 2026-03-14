@@ -41,7 +41,7 @@
                 DeleteCommand="DELETE FROM &quot;BOOKINGS&quot; WHERE &quot;BOOKINGID&quot; = :original_BOOKINGID"
                 InsertCommand="INSERT INTO &quot;BOOKINGS&quot; (&quot;BOOKINGID&quot;, &quot;USERID&quot;, &quot;SHOWTIMEID&quot;, &quot;BOOKINGTIME&quot;, &quot;STATUS&quot;, &quot;TYPE&quot;) VALUES (:BOOKINGID, :USERID, :SHOWTIMEID, :BOOKINGTIME, :STATUS, :TYPE)"
                 OldValuesParameterFormatString="original_{0}" ProviderName="System.Data.OracleClient"
-                SelectCommand="SELECT * FROM &quot;BOOKINGS&quot;"
+                SelectCommand="SELECT * FROM &quot;BOOKINGS&quot; ORDER BY &quot;BOOKINGID&quot; ASC"
                 UpdateCommand="UPDATE &quot;BOOKINGS&quot; SET &quot;USERID&quot; = :USERID, &quot;SHOWTIMEID&quot; = :SHOWTIMEID, &quot;BOOKINGTIME&quot; = :BOOKINGTIME, &quot;STATUS&quot; = :STATUS, &quot;TYPE&quot; = :TYPE WHERE &quot;BOOKINGID&quot; = :original_BOOKINGID">
                 <DeleteParameters>
                     <asp:Parameter Name="original_BOOKINGID" Type="Decimal" />
@@ -106,7 +106,7 @@
                                         SelectedValue='<%# Bind("STATUS") %>' CssClass="form-select mb-2"
                                         style="background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.1);">
                                         <asp:ListItem Value="PAID">PAID</asp:ListItem>
-                                        <asp:ListItem Value="RESERVED">RESERVED</asp:ListItem>
+                                        <asp:ListItem Value="BOOKED">BOOKED</asp:ListItem>
                                         <asp:ListItem Value="CANCELLED">CANCELLED</asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
@@ -163,7 +163,7 @@
                                         SelectedValue='<%# Bind("STATUS") %>' CssClass="form-select mb-2"
                                         style="background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.1);">
                                         <asp:ListItem Value="PAID">PAID</asp:ListItem>
-                                        <asp:ListItem Value="RESERVED">RESERVED</asp:ListItem>
+                                        <asp:ListItem Value="BOOKED">BOOKED</asp:ListItem>
                                         <asp:ListItem Value="CANCELLED">CANCELLED</asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
