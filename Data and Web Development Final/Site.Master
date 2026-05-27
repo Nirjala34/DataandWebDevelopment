@@ -16,6 +16,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
         :root {
@@ -282,6 +283,8 @@
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 ms-4">
                         <li class="nav-item"><a class="nav-link px-3" runat="server" href="~/" style="font-weight: 500;">Home</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" runat="server" href="~/About.aspx" style="font-weight: 500;">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link px-3" runat="server" href="~/Contact.aspx" style="font-weight: 500;">Contact</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle px-3" href="#" id="crudMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: 500;">
                                 Manage Data
@@ -318,9 +321,9 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <p style="color: var(--text-dim); margin-bottom: 0;">&copy; <%: DateTime.Now.Year %> - <span style="color: var(--primary-accent); font-weight: 600;">KUMARI CINEMAS</span> PREMIUM DASHBOARD</p>
                     <div class="social-links">
-                        <i class="bi bi-facebook mx-2" style="cursor: pointer; color: var(--text-dim);"></i>
-                        <i class="bi bi-instagram mx-2" style="cursor: pointer; color: var(--text-dim);"></i>
-                        <i class="bi bi-twitter mx-2" style="cursor: pointer; color: var(--text-dim);"></i>
+                        <a href="https://www.facebook.com/" target="_blank" style="text-decoration: none;"><i class="bi bi-facebook mx-2" style="cursor: pointer; color: var(--text-dim);"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" style="text-decoration: none;"><i class="bi bi-instagram mx-2" style="cursor: pointer; color: var(--text-dim);"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank" style="text-decoration: none;"><i class="bi bi-linkedin mx-2" style="cursor: pointer; color: var(--text-dim);"></i></a>
                     </div>
                 </div>
             </footer>

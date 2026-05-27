@@ -4,13 +4,13 @@
         <div class="container py-4">
             <h2 class="fw-bold mb-4"
                 style="color: #ffffff; border-bottom: 3px solid var(--primary-accent); padding-bottom: 10px; display: inline-block; letter-spacing: 1px;">
-                <i class="bi bi-film me-2" style="color: var(--primary-accent);"></i>Manage Movies
+                Manage Movies
             </h2>
 
             <div class="card glass-card mb-5 overflow-hidden">
                 <div class="card-header text-white"
                     style="background: rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                    <h5 class="mb-0 fw-semibold"><i class="bi bi-cpu me-2" style="color: var(--neon-cyan);"></i> Movie
+                    <h5 class="mb-0 fw-semibold">Movie
                         Database Engine</h5>
                 </div>
                 <div class="card-body p-0 table-responsive">

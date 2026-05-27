@@ -1,17 +1,17 @@
-﻿<%@ Page Title="Halls Details" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true"
+<%@ Page Title="Halls Details" MasterPageFile="~/Site.Master" Language="C#" AutoEventWireup="true"
     CodeFile="Halls Details.aspx.cs" Inherits="Data_and_Web_Development_Final.Halls_Details" %>
 
     <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
         <div class="container py-4">
             <h2 class="fw-bold mb-4"
                 style="color: #ffffff; border-bottom: 3px solid var(--primary-accent); padding-bottom: 10px; display: inline-block; letter-spacing: 1px;">
-                <i class="bi bi-door-open me-2" style="color: var(--primary-accent);"></i>Manage Cinema Halls
+                Manage Cinema Halls
             </h2>
 
             <div class="card glass-card mb-5 overflow-hidden">
                 <div class="card-header text-white"
                     style="background: rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-                    <h5 class="mb-0 fw-semibold"><i class="bi bi-cpu me-2" style="color: var(--neon-cyan);"></i> Hall
+                    <h5 class="mb-0 fw-semibold">Hall
                         Database Engine</h5>
                 </div>
                 <div class="card-body p-0 table-responsive">
